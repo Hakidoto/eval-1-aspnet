@@ -9,7 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.2.2" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="jQuery" Version="3.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DBClassLib\DBClassLib.csproj" />
   </ItemGroup>
 
 </Project>

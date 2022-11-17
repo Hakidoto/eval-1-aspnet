@@ -1,4 +1,5 @@
-﻿using Eval_1.Models;
+﻿using DBClassLib;
+using Eval_1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -21,21 +22,31 @@ namespace Eval_1.Controllers
         [HttpPost]
         public IActionResult Login(string Nickname, string Passcode)
         {
+            db_pruebaEntities db = new db_pruebaEntities();
+            
             string user = Nickname;//
             string pass = Passcode;//
 
-            if (user == "JefeComputo")
+            //var usuario = from b in db.Usuarios
+            //              where b.Usuario == user
+            //              select b.IdUsuario;
+            //var fetch = usuario.ToList();
+
+            var puesto = (from users in db.Usuarios
+                           where users.Usuario == user && users.Contrasena == pass
+                           select users.IdUsuario).FirstOrDefault();
+
+            if ( puesto == 1)
             {
                 return View("~/Views/JefeComputo/Index.cshtml");
+
             }
-            else if (user == "JefeArea")
+            else if (puesto == 2)
             {
                 return View("~/Views/JefeArea/Index.cshtml");
             }
             else
             {
-                ViewBag.JavaScriptFunction = "$('#MyPopUp').modal('show')";
-                System.Threading.Thread.Sleep(10000);
                 return View("~/Views/Home/Index.cshtml");
             }
         }
