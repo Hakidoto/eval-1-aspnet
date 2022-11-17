@@ -7,8 +7,8 @@ namespace Eval_1.Controllers
     {
         public IActionResult Index()
         {
-            var entities = new db_pruebaEntities();
-            return View(entities.Reporte.ToList());
+            db_pruebaEntities db = new db_pruebaEntities();
+            return View(db.Reporte.ToList());
         }
     }
 }
