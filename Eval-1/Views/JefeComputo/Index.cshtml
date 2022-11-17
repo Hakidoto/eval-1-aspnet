@@ -1,4 +1,6 @@
-﻿@*
+﻿@model IEnumerable<Eval_1.Models.ReporteModel>
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -28,33 +30,33 @@
     <p class="text-center text-white fs-2">Reportes a revisar</p>
     <div class="container">
             <table class="table table-hover table-dark table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Equipo</th>
-                        <th scope="col">Accion a realizar</th>
-                        <th scope="col">Atencion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>twitter</td>
-                    </tr>
-                </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Equipo</th>
+                    <th scope="col">Accion a realizar</th>
+                    <th scope="col">Atencion</th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.IdReporte)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.Equipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.Accion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.Atencion)
+                    </td>
+                </tr>
+            }
+
             </table>
     </div>
 

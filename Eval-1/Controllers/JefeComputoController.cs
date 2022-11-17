@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DBClassLib;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Eval_1.Controllers
 {
@@ -6,7 +7,8 @@ namespace Eval_1.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var entities = new db_pruebaEntities();
+            return View(entities.Reporte.ToList());
         }
     }
 }
