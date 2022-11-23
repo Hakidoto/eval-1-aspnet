@@ -38,16 +38,17 @@ namespace Eval_1.Controllers
 
             if ( puesto == 1)
             {
-                return View("~/Views/JefeComputo/Index.cshtml");
+                return RedirectToAction("Index", "JefeComputo");
 
             }
             else if (puesto == 2)
             {
-                return View("~/Views/JefeArea/Index.cshtml");
+                return RedirectToAction("Index", "JefeArea");
+
             }
             else
             {
-                return View("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index", "Home");
             }
         }
 
